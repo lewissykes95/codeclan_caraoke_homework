@@ -4,3 +4,5 @@ class Song:
         self.artist = _artist
         self.length_of_song = _length_of_song
 
+    
+        

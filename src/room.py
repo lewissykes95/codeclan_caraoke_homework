@@ -6,5 +6,12 @@ class Room:
         self.capacity = _capacity
         self.till = 0
         self.list_of_songs = {}
+        self.list_of_guests = []
+
+    def check_guest_in(self, guest):
+        self.list_of_guests.append(guest)
+
+    def check_guest_out(self, guest):
+        self.list_of_guests.remove(guest)
 
 
