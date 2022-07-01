@@ -8,8 +8,7 @@ from src.karaoke_bar import KaraokeBar
 class TestGuest(unittest.TestCase):
     def setUp(self):
         self.guest = Guest("Bob", 10, "Enter Sandman")
-
-    
+ 
     def test_check_guest_has_name(self):
         self.assertEqual("Bob", self.guest.name)
 
