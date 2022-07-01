@@ -18,6 +18,8 @@ class TestKaraokeBar(unittest.TestCase):
     def test_check_karaoke_bar_has_money_in_till(self):
         self.assertEqual(500.00, self.karaoke_bar.till)
 
+    
+
 
 
     
