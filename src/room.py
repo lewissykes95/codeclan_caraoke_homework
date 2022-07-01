@@ -20,6 +20,16 @@ class Room:
     def remove_song(self, song):
         del self.list_of_songs[song.name]
 
+    # def check_guest_cap(self, guest):
+    #     for guest in self.list_of_guests:
+    #         self.list_of_guests.append(guest)
+    #     if len(self.list_of_guests) <= self.capcity: 
+    #         return True
+    #     else:
+    #         return False
+
+    
+
 
 
   
