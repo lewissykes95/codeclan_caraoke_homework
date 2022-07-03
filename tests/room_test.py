@@ -7,7 +7,7 @@ from src.song import Song
 class TestRoom(unittest.TestCase):
     def setUp(self):
         self.room1 = Room(4, 12)
-        self.room2 = Room(6, 8)
+        self.room2 = Room(6, 2)
         self.room3 = Room(10, 16)
         self.guest1 = Guest("Bob", 10, "Enter Sandman")
         self.guest2 = Guest("Sandra", 40, "Hotel California")
@@ -26,7 +26,7 @@ class TestRoom(unittest.TestCase):
 
     def test_check_capacity_of_room(self):
         self.assertEqual(12, self.room1.capacity)
-        self.assertEqual(8, self.room2.capacity)
+        self.assertEqual(2, self.room2.capacity)
         self.assertEqual(16, self.room3.capacity)
 
     def test_check_guests(self):
@@ -35,6 +35,8 @@ class TestRoom(unittest.TestCase):
     def test_check_guest_in(self):
         self.room1.check_guest_in(self.guest1)
         self.assertEqual(1, len(self.room1.list_of_guests))
+        self.room1.check_guest_in(self.guest2)
+        self.assertEqual(2, len(self.room1.list_of_guests))
 
     def test_check_guest_out(self):
         self.room1.check_guest_in(self.guest1)
@@ -53,18 +55,45 @@ class TestRoom(unittest.TestCase):
 
     def test_remove_song_from_dictionary(self):
         self.room1.add_song(self.song1)
-        self.room2.add_song(self.song2)
         self.assertEqual(1, len(self.room1.list_of_songs))
-        self.assertEqual(1, len(self.room2.list_of_songs))
-        self.room1.remove_song(self.song1)
-        self.room2.remove_song(self.song2)
-        self.assertEqual(0, len(self.room1.list_of_songs))
-        self.assertEqual(0, len(self.room2.list_of_songs))
+        self.room1.add_song(self.song2)
+        self.assertEqual(2, len(self.room1.list_of_songs))
+        self.room1.add_song(self.song3)
+        self.assertEqual(3, len(self.room1.list_of_songs))
+    
 
-    # def test_check_capacity_against_guests(self):
-    #     self.room1.check_guest_in(self.guest1)
-    #     guest_list = check_guest_cap(self.room1)
-    #     self.assertEqual(True, count(guest_list))
+    def test_check_capacity_against_guests(self):
+        capacity = self.room1.check_capacity(self.room1)
+        self.assertEqual(True, capacity)
+
+    def test_check_limit_of_guests(self):
+        check_guest_amount = self.room1.check_limit(self.guest1, self.room1)
+        self.assertEqual(True, check_guest_amount)
+
+  
+
+
+
+
+
+
+
+        
+
+    
+
+
+
+    
+       
+
+    
+       
+
+
+    
+
+    
 
 
         
